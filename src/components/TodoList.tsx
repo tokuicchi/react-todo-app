@@ -6,9 +6,10 @@ type Props = {
   todoList: Todo[];
   changeCompleted: (id: number) => void;
   deleteTodo: (id: number) => void;
+  changePriority: (id: number, priority: number) => void;
 };
 
-export const TodoList = ({ todoList, changeCompleted, deleteTodo }: Props) => {
+export const TodoList = ({ todoList, changeCompleted, deleteTodo, changePriority }: Props) => {
   return (
     <div className="space-y-3">
       {todoList.map((todo) => (
@@ -24,6 +25,15 @@ export const TodoList = ({ todoList, changeCompleted, deleteTodo }: Props) => {
                 checked={todo.completed}
                 onChange={() => changeCompleted(todo.id)}
               />
+              <select
+                name="priority"
+                defaultValue={todo.priority.toString()}
+                onChange={(e) => changePriority(todo.id, parseInt(e.target.value))}
+              >
+                <option value="0">低</option>
+                <option value="1">中</option>
+                <option value="2">高</option>
+              </select>
             </div>
             <span
               className={todo.completed ? 'text-gray-400 line-through' : ''}

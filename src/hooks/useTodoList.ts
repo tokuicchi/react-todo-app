@@ -34,6 +34,7 @@ export const useTodoList = () => {
         id: Date.now(),
         title,
         completed: false,
+        priority: 1,
       };
 
       return [newTodo, ...prevTodoList];
@@ -58,11 +59,24 @@ export const useTodoList = () => {
     });
   };
 
+  // 優先を変更する
+  const changePriority = (id: number, newPriority: number) => {
+    setTodoList((prevTodoList) => {
+      return prevTodoList.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, priority: newPriority };
+        }
+        return todo;
+      });
+    });
+  };
+
   return {
     todoList,
     changeCompleted,
     addTodo,
     deleteTodo,
     deleteAllCompleted,
+    changePriority,
   };
 }

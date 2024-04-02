@@ -5,7 +5,7 @@ import { TodoSummary } from './components/TodoSummary';
 import { useTodoList } from './hooks/useTodoList';
 
 function App() {
-  const { todoList, changeCompleted, addTodo, deleteTodo, deleteAllCompleted } =
+  const { todoList, changeCompleted, addTodo, deleteTodo, deleteAllCompleted, changePriority } =
     useTodoList();
 
   return (
@@ -18,6 +18,7 @@ function App() {
             todoList={todoList}
             changeCompleted={changeCompleted}
             deleteTodo={deleteTodo}
+            changePriority={changePriority}
           />
           <TodoSummary
             todoList={todoList}
