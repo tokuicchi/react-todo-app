@@ -19,7 +19,10 @@ function App() {
             changeCompleted={changeCompleted}
             deleteTodo={deleteTodo}
           />
-          <TodoSummary deleteAllCompleted={deleteAllCompleted} />
+          <TodoSummary
+            todoList={todoList}
+            deleteAllCompleted={deleteAllCompleted}
+          />
         </div>
       </div>
     </main>
