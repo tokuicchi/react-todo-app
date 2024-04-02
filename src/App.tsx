@@ -12,7 +12,7 @@ function App() {
         if (todo.id === id) {
           return {
             ...todo,
-            completed: !todo.completed
+            completed: !todo.completed,
           };
         }
         return todo;
@@ -43,7 +43,7 @@ function App() {
     <main className="mx-auto mt-10 max-w-xl space-y-10">
       <h1 className="text-center text-4xl">Todoアプリ</h1>
       <div className="space-y-5">
-        <AddTodoForm addTodo={addTodo}/>
+        <AddTodoForm addTodo={addTodo} />
         <div className="rounded bg-slate-200 p-5">
           <TodoList
             todoList={todoList}

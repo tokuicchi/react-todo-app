@@ -9,6 +9,7 @@ type Props = {
 };
 
 export const TodoList = ({ todoList, changeCompleted, deleteTodo }: Props) => {
+  console.log(todoList.length);
   return (
     <div className="space-y-3">
       {todoList.map((todo) => (
@@ -28,7 +29,7 @@ export const TodoList = ({ todoList, changeCompleted, deleteTodo }: Props) => {
             <span
               className={todo.completed ? 'text-gray-400 line-through' : ''}
             >
-            {todo.title}
+              {todo.title}
             </span>
           </label>
           <button
@@ -40,6 +41,9 @@ export const TodoList = ({ todoList, changeCompleted, deleteTodo }: Props) => {
           </button>
         </div>
       ))}
+      {todoList.length === 0 && (
+        <p className="text-center text-sm">Todoが登録されていません</p>
+      )}
     </div>
   );
 };
