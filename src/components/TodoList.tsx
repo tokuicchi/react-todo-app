@@ -9,7 +9,6 @@ type Props = {
 };
 
 export const TodoList = ({ todoList, changeCompleted, deleteTodo }: Props) => {
-  console.log(todoList.length);
   return (
     <div className="space-y-3">
       {todoList.map((todo) => (
